@@ -12,21 +12,21 @@ const Comments = () => {
   const [isAddingComment, setIsAddingComment] = useState(false);
   const params = useParams();
 
-  const { quoteId } = params;
+  const { CookieId } = params;
 
   const { sendRequest, status, data: loadedComments } = useHttp(getAllComments);
 
   useEffect(() => {
-    sendRequest(quoteId);
-  }, [quoteId, sendRequest]);
+    sendRequest(CookieId);
+  }, [CookieId, sendRequest]);
 
   const startAddCommentHandler = () => {
     setIsAddingComment(true);
   };
 
   const addedCommentHandler = useCallback(() => {
-    sendRequest(quoteId);
-  }, [sendRequest, quoteId]);
+    sendRequest(CookieId);
+  }, [sendRequest, CookieId]);
 
   let comments;
 
@@ -59,7 +59,7 @@ const Comments = () => {
       )}
       {isAddingComment && (
         <NewCommentForm
-          quoteId={quoteId}
+          CookieId={CookieId}
           onAddedComment={addedCommentHandler}
         />
       )}

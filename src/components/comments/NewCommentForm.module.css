@@ -29,15 +29,15 @@
   padding: 0.35rem;
   border-radius: 4px;
   background-color: #f0f0f0;
-  border: 1px solid #c1d1d1;
+  border: 1px solid #8f4c00;
   display: block;
   width: 100%;
   font-size: 1.25rem;
 }
 
 .control textarea:focus {
-  background-color: #cbf8f8;
-  outline-color: teal;
+  background-color: #9b5d00;
+  outline-color: rgb(128, 62, 0);
 }
 
 .actions button {

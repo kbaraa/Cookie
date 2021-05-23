@@ -1,8 +1,8 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import AllQuotes from './pages/AllQuotes';
-import QuoteDetail from './pages/QuoteDetail';
-import NewQuote from './pages/NewQuote';
+import AllCookies from './pages/AllCookies';
+import CookieDetail from './pages/CookieDetail';
+import NewCookie from './pages/NewCookie';
 import NotFound from './pages/NotFound';
 import Layout from './components/layout/Layout';
 
@@ -11,16 +11,16 @@ function App() {
     <Layout>
       <Switch>
         <Route path='/' exact>
-          <Redirect to='/quotes' />
+          <Redirect to='/Cookies' />
         </Route>
-        <Route path='/quotes' exact>
-          <AllQuotes />
+        <Route path='/Cookies' exact>
+          <AllCookies />
         </Route>
-        <Route path='/quotes/:quoteId'>
-          <QuoteDetail />
+        <Route path='/Cookies/:CookieId'>
+          <CookieDetail />
         </Route>
-        <Route path='/new-quote'>
-          <NewQuote />
+        <Route path='/new-Cookie'>
+          <NewCookie />
         </Route>
         <Route path='*'>
           <NotFound />

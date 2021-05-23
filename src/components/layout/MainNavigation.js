@@ -5,17 +5,17 @@ import classes from './MainNavigation.module.css';
 const MainNavigation = () => {
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>Great Quotes</div>
+      <div className={classes.logo}>Cookie Jar</div>
       <nav className={classes.nav}>
         <ul>
           <li>
-            <NavLink to='/quotes' activeClassName={classes.active}>
-              All Quotes
+            <NavLink to='/Cookies' activeClassName={classes.active}>
+              All Cookies
             </NavLink>
           </li>
           <li>
-            <NavLink to='/new-quote' activeClassName={classes.active}>
-              Add a Quote
+            <NavLink to='/new-Cookie' activeClassName={classes.active}>
+              Add a Cookie
             </NavLink>
           </li>
         </ul>

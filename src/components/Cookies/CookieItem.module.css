@@ -6,7 +6,7 @@
   align-items: flex-end;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  background-color: #c2e7f0;
+  background-color: #a558006b;
 }
 
 .item:last-of-type {
@@ -19,11 +19,11 @@
   width: 70%;
 }
 
-.item blockquote {
+.item blockCookie {
   margin: 0;
   text-align: left;
   font-size: 1.5rem;
-  color: #212929;
+  color: #794800;
 }
 
 .item p {
@@ -33,5 +33,5 @@
 
 .item figcaption {
   font-style: italic;
-  color: #566d6d;
+  color: #833b00a4;
 }

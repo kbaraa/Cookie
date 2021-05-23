@@ -1,47 +1,47 @@
 const FIREBASE_DOMAIN = 'https://quot-2c83c-default-rtdb.firebaseio.com';
 
-export async function getAllQuotes() {
-  const response = await fetch(`${FIREBASE_DOMAIN}/quotes.json`);
+export async function getAllCookies() {
+  const response = await fetch(`${FIREBASE_DOMAIN}/Cookies.json`);
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || 'Could not fetch quotes.');
+    throw new Error(data.message || 'Could not fetch Cookies.');
   }
 
-  const transformedQuotes = [];
+  const transformedCookies = [];
 
   for (const key in data) {
-    const quoteObj = {
+    const CookieObj = {
       id: key,
       ...data[key],
     };
 
-    transformedQuotes.push(quoteObj);
+    transformedCookies.push(CookieObj);
   }
 
-  return transformedQuotes;
+  return transformedCookies;
 }
 
-export async function getSingleQuote(quoteId) {
-  const response = await fetch(`${FIREBASE_DOMAIN}/quotes/${quoteId}.json`);
+export async function getSingleCookie(CookieId) {
+  const response = await fetch(`${FIREBASE_DOMAIN}/Cookies/${CookieId}.json`);
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || 'Could not fetch quote.');
+    throw new Error(data.message || 'Could not fetch Cookie.');
   }
 
-  const loadedQuote = {
-    id: quoteId,
+  const loadedCookie = {
+    id: CookieId,
     ...data,
   };
 
-  return loadedQuote;
+  return loadedCookie;
 }
 
-export async function addQuote(quoteData) {
-  const response = await fetch(`${FIREBASE_DOMAIN}/quotes.json`, {
+export async function addCookie(CookieData) {
+  const response = await fetch(`${FIREBASE_DOMAIN}/Cookies.json`, {
     method: 'POST',
-    body: JSON.stringify(quoteData),
+    body: JSON.stringify(CookieData),
     headers: {
       'Content-Type': 'application/json',
     },
@@ -49,14 +49,14 @@ export async function addQuote(quoteData) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || 'Could not create quote.');
+    throw new Error(data.message || 'Could not create Cookie.');
   }
 
   return null;
 }
 
 export async function addComment(requestData) {
-  const response = await fetch(`${FIREBASE_DOMAIN}/comments/${requestData.quoteId}.json`, {
+  const response = await fetch(`${FIREBASE_DOMAIN}/comments/${requestData.CookieId}.json`, {
     method: 'POST',
     body: JSON.stringify(requestData.commentData),
     headers: {
@@ -72,8 +72,8 @@ export async function addComment(requestData) {
   return { commentId: data.name };
 }
 
-export async function getAllComments(quoteId) {
-  const response = await fetch(`${FIREBASE_DOMAIN}/comments/${quoteId}.json`);
+export async function getAllComments(CookieId) {
+  const response = await fetch(`${FIREBASE_DOMAIN}/comments/${CookieId}.json`);
 
   const data = await response.json();
 

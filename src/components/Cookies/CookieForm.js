@@ -3,9 +3,9 @@ import { Prompt } from 'react-router-dom';
 
 import Card from '../UI/Card';
 import LoadingSpinner from '../UI/LoadingSpinner';
-import classes from './QuoteForm.module.css';
+import classes from './CookieForm.module.css';
 
-const QuoteForm = (props) => {
+const CookieForm = (props) => {
   const [isEntering, setIsEntering] = useState(false);
 
   const authorInputRef = useRef();
@@ -17,9 +17,8 @@ const QuoteForm = (props) => {
     const enteredAuthor = authorInputRef.current.value;
     const enteredText = textInputRef.current.value;
 
-    // optional: Could validate here
 
-    props.onAddQuote({ author: enteredAuthor, text: enteredText });
+    props.onAddCookie({ author: enteredAuthor, text: enteredText });
   }
 
   const finishEnteringHandler = () => {
@@ -59,7 +58,7 @@ const QuoteForm = (props) => {
             <textarea id='text' rows='5' ref={textInputRef}></textarea>
           </div>
           <div className={classes.actions}>
-            <button onClick={finishEnteringHandler} className='btn'>Add Quote</button>
+            <button onClick={finishEnteringHandler} className='btn'>Add Cookie</button>
           </div>
         </form>
       </Card>
@@ -67,4 +66,4 @@ const QuoteForm = (props) => {
   );
 };
 
-export default QuoteForm;
+export default CookieForm;

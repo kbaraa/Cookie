@@ -1,20 +1,20 @@
 import { Fragment } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
-import QuoteItem from './QuoteItem';
-import classes from './QuoteList.module.css';
+import CookieItem from './CookieItem';
+import classes from './CookieList.module.css';
 
-const sortQuotes = (quotes, ascending) => {
-  return quotes.sort((quoteA, quoteB) => {
+const sortCookies = (Cookies, ascending) => {
+  return Cookies.sort((CookieA, CookieB) => {
     if (ascending) {
-      return quoteA.id > quoteB.id ? 1 : -1;
+      return CookieA.id > CookieB.id ? 1 : -1;
     } else {
-      return quoteA.id < quoteB.id ? 1 : -1;
+      return CookieA.id < CookieB.id ? 1 : -1;
     }
   });
 };
 
-const QuoteList = (props) => {
+const CookieList = (props) => {
   const history = useHistory();
   const location = useLocation();
 
@@ -22,7 +22,7 @@ const QuoteList = (props) => {
 
   const isSortingAscending = queryParams.get('sort') === 'asc';
 
-  const sortedQuotes = sortQuotes(props.quotes, isSortingAscending);
+  const sortedCookies = sortCookies(props.Cookies, isSortingAscending);
 
   const changeSortingHandler = () => {
     history.push({
@@ -39,17 +39,18 @@ const QuoteList = (props) => {
         </button>
       </div>
       <ul className={classes.list}>
-        {sortedQuotes.map((quote) => (
-          <QuoteItem
-            key={quote.id}
-            id={quote.id}
-            author={quote.author}
-            text={quote.text}
+        {sortedCookies.map((Cookie) => (
+          <CookieItem
+            key={Cookie.id}
+            id={Cookie.id}
+            author={Cookie.author}
+            text={Cookie.text}
           />
         ))}
       </ul>
+      <p className={classes.text}>Add all your failures and accomplishments!</p>
     </Fragment>
   );
 };
 
-export default QuoteList;
+export default CookieList;

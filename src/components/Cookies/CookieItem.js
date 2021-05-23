@@ -1,21 +1,21 @@
 import { Link } from 'react-router-dom';
 
-import classes from './QuoteItem.module.css';
+import classes from './CookieItem.module.css';
 
-const QuoteItem = (props) => {
+const CookieItem = (props) => {
   return (
     <li className={classes.item}>
       <figure>
-        <blockquote>
+        <blockCookie>
           <p>{props.text}</p>
-        </blockquote>
+        </blockCookie>
         <figcaption>{props.author}</figcaption>
       </figure>
-      <Link className='btn' to={`/quotes/${props.id}`}>
+      <Link className='btn' to={`/Cookies/${props.id}`}>
         View Fullscreen
       </Link>
     </li>
   );
 };
 
-export default QuoteItem;
+export default CookieItem;

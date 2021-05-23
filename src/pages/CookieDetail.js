@@ -1,26 +1,26 @@
 import { Fragment, useEffect } from 'react';
 import { useParams, Route, Link, useRouteMatch } from 'react-router-dom';
 
-import HighlightedQuote from '../components/quotes/HighlightedQuote';
+import HighlightedCookie from '../components/Cookies/HighlightedCookie';
 import Comments from '../components/comments/Comments';
 import useHttp from '../hooks/use-http';
-import { getSingleQuote } from '../lib/api';
+import { getSingleCookie } from '../lib/api';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 
-const QuoteDetail = () => {
+const CookieDetail = () => {
   const match = useRouteMatch();
   const params = useParams();
 
-  const { quoteId } = params;
+  const { CookieId } = params;
 
-  const { sendRequest, status, data: loadedQuote, error } = useHttp(
-    getSingleQuote,
+  const { sendRequest, status, data: loadedCookie, error } = useHttp(
+    getSingleCookie,
     true
   );
 
   useEffect(() => {
-    sendRequest(quoteId);
-  }, [sendRequest, quoteId]);
+    sendRequest(CookieId);
+  }, [sendRequest, CookieId]);
 
   if (status === 'pending') {
     return (
@@ -34,13 +34,13 @@ const QuoteDetail = () => {
     return <p className='centered'>{error}</p>;
   }
 
-  if (!loadedQuote.text) {
-    return <p>No quote found!</p>;
+  if (!loadedCookie.text) {
+    return <p>No Cookie found!</p>;
   }
 
   return (
     <Fragment>
-      <HighlightedQuote text={loadedQuote.text} author={loadedQuote.author} />
+      <HighlightedCookie text={loadedCookie.text} author={loadedCookie.author} />
       <Route path={match.path} exact>
         <div className='centered'>
           <Link className='btn--flat' to={`${match.url}/comments`}>
@@ -55,4 +55,4 @@ const QuoteDetail = () => {
   );
 };
 
-export default QuoteDetail;
+export default CookieDetail;

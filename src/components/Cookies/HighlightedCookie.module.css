@@ -1,5 +1,5 @@
-.quote {
-  background-color: #162b2b;
+.Cookie {
+  background-color: #a34f0096;
   color: white;
   border-radius: 6px;
   padding: 3rem;
@@ -8,13 +8,13 @@
   max-width: 40rem;
 }
 
-.quote p {
+.Cookie p {
   font-size: 2.5rem;
 }
 
-.quote figcaption {
+.Cookie figcaption {
   font-style: italic;
   font-size: 1.5rem;
   text-align: right;
-  color: #a1e0e0;
+  color: #9e6004;
 }
